@@ -1,5 +1,5 @@
 import * as action from './actions';
-import { fetchGet, fetchDelete, fetchPost, fetchPut} from '../../shared/utility'
+import { fetchGet, fetchDelete, fetchPost, fetchPut} from '../shared/utility'
 
 export const createProblem = (problem) => {
   return dispatch => (

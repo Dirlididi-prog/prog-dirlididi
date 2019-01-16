@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Welcome from "../components/welcome/welcome";
-import Courses from "../components/courses/courses";
-import Problems from "../components/problems/problems";
+import Courses from "../containers/courses/courses";
+import Problems from "../containers/problems/problems";
 import Ide from "../components/ide/ide";
 
 const Router = () => {
@@ -14,6 +14,6 @@ const Router = () => {
           <Route path="/ide" component={Ide}/>
         </Switch>
     );
-}
+};
 
 export default Router;

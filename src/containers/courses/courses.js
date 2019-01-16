@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
+import PageBar from '../../components/pagination/PageBar';
+
 export default class Courses extends Component {
   render() {
     return (
-      <div>
-        Courses
-      </div>
+      <PageBar pages={10} />
     )
   }
 }
