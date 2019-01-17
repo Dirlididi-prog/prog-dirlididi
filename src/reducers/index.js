@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import ProblemReducer from './problem';
+import CoursesReducer from './coursesReducer';
 import WelcomeReducer from './welcome-reducer';
 
 const rootReducer = combineReducers({
   problemReducer: ProblemReducer,
-  welcomeReducer: WelcomeReducer
+  coursesReducer: CoursesReducer,
+  welcomeReducer: WelcomeReducer,
 });
 
 export default rootReducer;
