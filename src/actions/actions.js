@@ -1,7 +1,9 @@
-export const INIT_PROBLEMS = "INIT_PROBLEMS";
-export const CREATE_PROBLEM = "CREATE_PROBLEM";
-export const DELETE_PROBLEM = "DELETE_PROBLEM";
-export const UPDATE_PROBLEM = "UPDATE_PROBLEM";
-export const CREATE_FAIL = "CREATE_FAIL";
+export const INIT_PROBLEMS = 'INIT_PROBLEMS';
+export const CREATE_PROBLEM = 'CREATE_PROBLEM';
+export const DELETE_PROBLEM = 'DELETE_PROBLEM';
+export const UPDATE_PROBLEM = 'UPDATE_PROBLEM';
+export const CREATE_FAIL = 'CREATE_FAIL';
+
+export const GET_COURSES = 'GET_COURSES';
 
 export const INIT_WELCOME = "INIT_WELCOME";
