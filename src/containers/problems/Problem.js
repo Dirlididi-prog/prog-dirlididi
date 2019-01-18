@@ -5,7 +5,7 @@ import Table from '../../components/table/table'
 import './style/problems.css';
 import Spinner from "../../components/spinner/spinner";
 
-class Problems extends Component {
+class Problem extends Component {
   render() {
     const headers = {
       name: 'Problem',
@@ -40,7 +40,7 @@ const mapStateToProps = state => (
 
 const mapDispatchToProps = dispatch => (
   {
-    onInitProblems: () => dispatch(problemAction.initProblems()),
+    onInitProblems: () => dispatch(problemAction.getProblems()),
   }
 );
 

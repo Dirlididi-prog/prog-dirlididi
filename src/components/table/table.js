@@ -20,26 +20,28 @@ class Table extends Component {
     }
   }
 
-  render() {
-    const headers = Object.keys(this.state.headers).map((key) => {
+  renderColumns() {
+    return Object.keys(this.state.headers).map((header) => {
       return(
-        <TableHeaderColumn dataField={key}>
-          { this.state.headers[key] }
+        <TableHeaderColumn dataField={header} >
+          { this.state.headers[header] }
         </TableHeaderColumn>
       );
     });
+  }
 
+  render() {
     return (
       <div>
         <BootstrapTable
           data={ this.state.data }
           options={ options }
-          search={ true }
-          keyField='dirlididi-table'
+          keyField='key'
+          search
           pagination
           hover
         >
-          { headers }
+          { this.renderColumns() }
         </BootstrapTable>
       </div>
     );

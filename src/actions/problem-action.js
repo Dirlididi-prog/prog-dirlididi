@@ -40,7 +40,7 @@ export const deleteProblem = (problemId) => {
   )
 };
 
-export const initProblems = () => {
+export const getProblems = () => {
   return  dispatch => {
     fetchGet("/problem")
       .then(problems => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import Welcome from "../containers/welcome/welcome";
-import Courses from "../containers/courses/courses";
-import Problems from "../containers/problems/problems";
+import Welcome from "../components/welcome/welcome";
+import Course from "../containers/courses/course";
+import Problem from "../containers/problems/problem";
 import Ide from "../components/ide/ide";
 import "./router.css"
 

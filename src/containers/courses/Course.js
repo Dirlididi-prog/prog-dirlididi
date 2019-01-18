@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import Table from '../../components/utils/table'
-import * as courseAction from "../../actions/courseAction";
-import './style/courses.css';
+import * as courseAction from "../../actions/course-action";
+import './style/course.css';
 
 class Courses extends Component {
 
@@ -19,18 +19,20 @@ class Courses extends Component {
     this.props.onInitCourses()
   }
 
-  renderContent() {
-    if (this.props.isLoading) {
-      return (<div className="spinner" />)
-    }
+  // renderContent() {
+  //   if (this.props.isLoading) {
+  //     return (<div className="spinner" />)
+  //   }
 
-    return (<Table headers={this.headers} data={this.props.courses} />)
-  };
+  //   return (<Table headers={this.headers} data={this.props.courses} />)
+  // };
 
   render() {
+    const table = (this.props.isLoading) ? <div className="spinner" /> 
+                  : <Table headers={this.headers} data={this.props.courses} />
     return (
       <div className='course-container'>
-        {this.renderContent()}
+        {table}
       </div>
     )
   }
