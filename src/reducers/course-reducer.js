@@ -6,7 +6,7 @@ const initialState = {
   error: null
 };
 
-const CoursesReducer = (state = initialState, action) => {
+const CourseReducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.GET_COURSES:
       return {
@@ -15,8 +15,7 @@ const CoursesReducer = (state = initialState, action) => {
         cources: action.courses
       };
     default: return state
-
   }
 };
 
-export default CoursesReducer;
+export default CourseReducer;
