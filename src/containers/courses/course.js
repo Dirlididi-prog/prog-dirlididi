@@ -5,17 +5,17 @@ import * as courseAction from "../../actions/course-action";
 import './style/course.css';
 import Spinner from "../../components/spinner/spinner";
 
-const HEADERS_TABLE = {
-  name: 'Course',
-  users: 'Users',
-  owner: 'Owner',
-  date: 'Created at',
-  enrolled: 'Enrolled',
-  actions: 'Actions' // check how we're going to deal with solving
-};
 
 class Course extends Component {
-
+  
+  HEADERS_TABLE = {
+    name: 'Course',
+    users: 'Users',
+    owner: 'Owner',
+    date: 'Created at',
+    enrolled: 'Enrolled',
+    actions: 'Actions' // check how we're going to deal with solving
+  };
 
   componentDidMount() {
     this.props.onInitCourses()

@@ -3,44 +3,42 @@ import {Nav, Navbar, NavItem} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import "./menu.css";
 
-const menuItems = {courses: "Courses", problems: "Problems", ide: "Ide"};
+const ITEMS_MENU = {courses: "Courses", problems: "Problems", ide: "Ide"};
 
 class Menu extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      activated: ''
+      activated: window.location.pathname,
     };
   }
 
   handleSelect = (selectedKey) => {
-    this.setState({activated: selectedKey})
+    this.setState({ activated: selectedKey })
   };
 
   render() {
-    const navItems = Object.keys(menuItems).map((key) =>{
+    const navItems = Object.keys(ITEMS_MENU).map((key) =>{
       return(
-        <NavItem componentClass="span" id="navItem" active={key === this.state.activated} key={key} eventKey={key}>
-          <Link id="link" to={"/"+key}> {menuItems[key]} </Link>
+        <NavItem componentClass="span" active={`/${key}` === this.state.activated} key={key} eventKey={key}>
+          <Link to={"/"+key}> {ITEMS_MENU[key]} </Link>
         </NavItem>
       )
     });
 
     return (
-      <Navbar id="menu">
+      <Navbar className="menu">
         <Navbar.Header>
           <Navbar.Brand>
-            <a href="/" id="iconHome">
-              <span>
-                <i className="fa fa-home" aria-hidden="true" />
-              </span>
-              <span> Dirlididi</span>
-            </a>
+            <Link to="/" onClick={ node =>this.handleSelect(node.currentTarget.pathname) }>
+              <span className="menu-logo"> Dirlididi</span>
+            </Link>
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse >
-          <Nav pullRight onSelect={key => this.handleSelect(key)} >
+          <Nav pullRight onSelect={key => this.handleSelect(`/${key}`)} >
             {navItems}
           </Nav>
         </Navbar.Collapse>
