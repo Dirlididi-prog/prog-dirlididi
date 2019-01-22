@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import "./style/nav-bar.css";
 import {Nav, Navbar, NavItem} from "react-bootstrap";
-import Router from "../../config/router";
 import {Link} from "react-router-dom";
+import "./menu.css";
 
 const menuItems = {courses: "Courses", problems: "Problems", ide: "Ide"};
 
@@ -10,7 +9,7 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      activated: ""
+      activated: ''
     };
   }
 

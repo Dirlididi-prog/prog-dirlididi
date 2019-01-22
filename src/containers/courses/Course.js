@@ -1,35 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import Table from '../../components/utils/table'
+import Table from '../../components/table/table'
 import * as courseAction from "../../actions/course-action";
 import './style/course.css';
+import Spinner from "../../components/spinner/spinner";
 
-class Courses extends Component {
+const HEADERS_TABLE = {
+  name: 'Course',
+  users: 'Users',
+  owner: 'Owner',
+  date: 'Created at',
+  enrolled: 'Enrolled',
+  actions: 'Actions' // check how we're going to deal with solving
+};
 
-  headers = {
-    name: 'Course',
-    users: 'Users',
-    owner: 'Owner',
-    date: 'Created at',
-    enrolled: 'Enrolled',
-    actions: 'Actions' // check how we're going to deal with solving
-  };
+class Course extends Component {
+
 
   componentDidMount() {
     this.props.onInitCourses()
   }
 
-  // renderContent() {
-  //   if (this.props.isLoading) {
-  //     return (<div className="spinner" />)
-  //   }
-
-  //   return (<Table headers={this.headers} data={this.props.courses} />)
-  // };
-
   render() {
-    const table = (this.props.isLoading) ? <div className="spinner" /> 
-                  : <Table headers={this.headers} data={this.props.courses} />
+    const table = (this.props.isLoading) ? <Spinner />
+                  : <Table headers={this.HEADERS_TABLE} data={this.props.courses} />
     return (
       <div className='course-container'>
         {table}
@@ -51,4 +45,4 @@ const mapDispatchToProps = dispatch => (
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Courses)
+export default connect(mapStateToProps, mapDispatchToProps)(Course)

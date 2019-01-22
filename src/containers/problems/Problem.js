@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import * as problemAction from "../../actions/problem";
+import * as problemAction from "../../actions/problem-action";
 import Table from '../../components/table/table'
-import './style/problems.css';
+import './style/problem.css';
 import Spinner from "../../components/spinner/spinner";
 
 class Problem extends Component {
@@ -44,4 +44,4 @@ const mapDispatchToProps = dispatch => (
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Problems)
+export default connect(mapStateToProps, mapDispatchToProps)(Problem)
