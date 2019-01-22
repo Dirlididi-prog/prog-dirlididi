@@ -14,7 +14,7 @@ const CourseReducer = (state = initialState, action) => {
         isLoading: false,
         cources: action.courses
       };
-    default: return state
+    default: return state;
   }
 };
 

@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import Table from '../../components/table/table'
-import * as courseAction from "../../actions/course-action";
+import { connect } from 'react-redux';
+import Table from '../../components/table/table';
+import * as courseAction from '../../actions/course-action';
 import './style/courses.css';
-import Spinner from "../../components/spinner/spinner";
-
+import Spinner from '../../components/spinner/spinner';
 
 class Courses extends Component {
-
   HEADERS_TABLE = {
     name: 'Course',
     users: 'Users',
@@ -17,32 +15,32 @@ class Courses extends Component {
     actions: 'Actions' // check how we're going to deal with solving
   };
 
-  componentDidMount() {
-    this.props.onInitCourses()
+  componentDidMount () {
+    this.props.onInitCourses();
   }
 
-  render() {
+  render () {
     const table = (this.props.isLoading) ? <Spinner />
-                  : <Table headers={this.HEADERS_TABLE} data={this.props.courses} />
+      : <Table headers={this.HEADERS_TABLE} data={this.props.courses} />;
     return (
       <div className='course-container'>
         {table}
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = state => (
   {
     courses: state.coursesReducer.courses,
-    isLoading: state.coursesReducer.isLoading,
+    isLoading: state.coursesReducer.isLoading
   }
 );
 
 const mapDispatchToProps = dispatch => (
   {
-    onInitCourses: () => dispatch(courseAction.getCourses()),
+    onInitCourses: () => dispatch(courseAction.getCourses())
   }
 );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Courses)
+export default connect(mapStateToProps, mapDispatchToProps)(Courses);

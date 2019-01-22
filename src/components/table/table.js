@@ -20,9 +20,9 @@ class Table extends Component {
     };
   }
 
-  renderColumns() {
+  renderColumns () {
     return Object.keys(this.state.headers).map((header) => {
-      return(
+      return (
         <TableHeaderColumn dataField={header} >
           { this.state.headers[header] }
         </TableHeaderColumn>
@@ -30,12 +30,12 @@ class Table extends Component {
     });
   }
 
-  render() {
+  render () {
     return (
       <div>
         <BootstrapTable
-          data={ this.state.data }
-          options={ options }
+          data={this.state.data}
+          options={options}
           keyField='key'
           search
           pagination

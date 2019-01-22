@@ -1,14 +1,14 @@
 import * as action from './actions';
-import { fetchGet } from '../shared/utility'
+import { fetchGet } from '../shared/utility';
 
 export const getCourses = () => {
   return dispatch => {
-    fetchGet('/api/course/')
+    fetchGet('/course/')
       .then(courses => {
         dispatch({ type: action.GET_COURSES, courses: courses });
       })
       .catch(error => {
-        console.log(error)
-      })
-  }
+        console.log(error);
+      });
+  };
 };
