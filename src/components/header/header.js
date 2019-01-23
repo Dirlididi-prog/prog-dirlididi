@@ -24,7 +24,12 @@ export default class Header extends Component {
           </div>
           {this.props.children}
           <p>
-            <Button bsStyle='primary' href={`#${this.props.buttonToggle}`} className={'btn btn-primary btn-xl'}> {this.props.buttonTitle} </Button>
+            <Button
+              bsStyle='primary'
+              href={`#${this.props.buttonToggle}`}
+              className={'btn btn-primary btn-xl header-button'}>
+              {this.props.buttonTitle}
+            </Button>
           </p>
         </div>
       </header>

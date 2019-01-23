@@ -6,13 +6,21 @@ const initialState = {
   error: null
 };
 
+const parseDataValues = (courses) =>{
+  // TODO It's necessary identify the user logged to se if he is a course member
+  return courses.map(course => {
+    course.members = course.members.length;
+    return course;
+  });
+};
+
 const CourseReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_COURSES:
       return {
         error: null,
         isLoading: false,
-        courses: action.courses
+        courses: parseDataValues(action.courses)
       };
     default: return state;
   }

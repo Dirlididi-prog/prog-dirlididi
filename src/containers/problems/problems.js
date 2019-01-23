@@ -4,24 +4,20 @@ import * as problemAction from '../../actions/problem';
 import Table from '../../components/table/table';
 import './style/problems.css';
 import Spinner from '../../components/spinner/spinner';
+import { HEADERS_TABLE } from '../../constants/problem-constants';
 
 class Problems extends Component {
   render () {
-    const headers = {
-      name: 'Problem',
-      description: 'Description',
-      key: 'Key',
-      date: 'Created',
-      solved: 'Solved' // check how we're going to deal with solving
-    };
-
     if (this.props.isLoading) {
       return <Spinner />;
     }
 
     return (
       <div className='problems-container'>
-        <Table headers={headers} data={this.props.problems} />
+        <Table
+          headers={HEADERS_TABLE}
+          data={this.props.problems}
+          useAsKey={'key'} />
       </div>
     );
   }

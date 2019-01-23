@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BootstrapTable, TableHeaderColumn } from 'react-bootstrap-table';
 import '../../../node_modules/react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import './table.css';
+import PropTypes from 'prop-types';
 
 const options = {
   onRowClick: function (row) {
@@ -11,20 +12,17 @@ const options = {
 };
 
 class Table extends Component {
-  constructor (props) {
-    super(props);
-
-    this.state = {
-      headers: props.headers,
-      data: props.data
-    };
-  }
-
   render () {
-    const headers = Object.keys(this.state.headers).map((key) => {
+    const headers = this.props.headers;
+    const tableHeaderList = Object.keys(headers).map((header) => {
       return (
-        <TableHeaderColumn dataField={key}>
-          { this.state.headers[key] }
+        <TableHeaderColumn
+          dataField={header}
+          key={header}
+          isKey={header === this.props.useAsKey}
+          width={headers[header].width}
+          dataAlign='center'>
+          { headers[header].label }
         </TableHeaderColumn>
       );
     });
@@ -32,18 +30,20 @@ class Table extends Component {
     return (
       <div>
         <BootstrapTable
-          data={this.state.data}
+          data={this.props.data}
           options={options}
           search
-          keyField='dirlididi-table'
           pagination
-          hover
-        >
-          { headers }
+          hover>
+          { tableHeaderList }
         </BootstrapTable>
       </div>
     );
   }
 }
+
+Table.protoTypes = {
+  useAsKey: PropTypes.string.isRequired
+};
 
 export default Table;

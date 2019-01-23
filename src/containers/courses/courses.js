@@ -12,13 +12,8 @@ class Courses extends Component {
   }
 
   render () {
-    // TODO It's necessary identify the user logged to se if he is a course member
-    const dataValues = this.props.courses.map(course => {
-      course.members = course.members.length;
-      return course;
-    });
     const containerData = (this.props.isLoading) ? <Spinner />
-      : <Table headers={HEADERS_TABLE} data={dataValues} />;
+      : <Table headers={HEADERS_TABLE} data={this.props.courses} useAsKey={"id"} />;
 
     return (
       <div className='course-container'>
