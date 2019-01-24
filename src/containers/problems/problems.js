@@ -40,7 +40,7 @@ const mapStateToProps = state => (
 
 const mapDispatchToProps = dispatch => (
   {
-    onInitProblems: () => dispatch(problemAction.initProblems())
+    onInitProblems: () => dispatch(problemAction.fetchProblems())
   }
 );
 

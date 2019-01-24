@@ -1,14 +1,9 @@
-import * as action from './actions';
-import { fetchGet } from '../shared/utility';
+import { INIT_WELCOME } from './actions';
+import request from '../api/request';
 
 export const initWelcome = () => {
-  return dispatch => {
-    fetchGet('/info')
-      .then(data => {
-        dispatch({ type: action.INIT_WELCOME, data: data });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+  return (dispatch) =>
+    request.get('/info')
+      .then(data => dispatch({ type: INIT_WELCOME, data: data }))
+      .catch(error => console.log(error));
 };

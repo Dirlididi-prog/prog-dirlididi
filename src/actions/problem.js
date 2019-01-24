@@ -1,59 +1,42 @@
-import * as action from './actions';
-import { fetchGet, fetchDelete, fetchPost, fetchPut } from '../shared/utility';
+import { CREATE_PROBLEM, UPDATE_PROBLEM, DELETE_PROBLEM, INIT_PROBLEMS, CREATE_FAIL } from './actions';
+import request from '../api/request';
 
 export const createProblem = (problem) => {
-  return dispatch => (
-    fetchPost(`/problem`, problem)
+  return (dispatch) =>
+    request.post(`/problem`, problem)
       .then(problem => {
         if (problem.error) {
           dispatch(createFail(problem.error));
-        } else {
-          dispatch({ type: action.CREATE_PROBLEM, problem: problem });
         }
+        dispatch({ type: CREATE_PROBLEM, problem: problem });
       })
-      .catch(error => {
-        console.log(error);
-      })
-  );
+      .catch(error => console.log(error));
 };
 
 export const updateProblem = (problemId, body) => {
-  return dispatch => {
-    fetchPut(`/problem/${problemId}`, body)
-      .then(problem => {
-        dispatch({ type: action.UPDATE_PROBLEM, problem: problem });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+  return (dispatch) =>
+    request.put(`/problem/${problemId}`, body)
+      .then(problem => dispatch({ type: UPDATE_PROBLEM, problem: problem }))
+      .catch(error => console.log(error));
 };
 
 export const deleteProblem = (problemId) => {
-  return dispatch => (
-    fetchDelete(`/problem/${problemId.join(',')}`)
-      .then(dispatch({ type: action.DELETE_PROBLEM, problemID: problemId }))
-      .catch(error => {
-        console.log(error);
-      })
-  );
+  return (dispatch) =>
+    request.delete(`/problem/${problemId.join(',')}`)
+      .then(dispatch({ type: DELETE_PROBLEM, problemID: problemId }))
+      .catch(error => console.log(error));
 };
 
-export const initProblems = () => {
-  return dispatch => {
-    fetchGet('/problem')
-      .then(problems => {
-        dispatch({ type: action.INIT_PROBLEMS, problems: problems });
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  };
+export const fetchProblems = () => {
+  return (dispatch) =>
+    request.get('/problem')
+      .then(problems => dispatch({ type: INIT_PROBLEMS, problems: problems.data }))
+      .catch(error => console.log(error));
 };
 
 const createFail = error => (
   {
-    type: action.CREATE_FAIL,
+    type: CREATE_FAIL,
     error: error
   }
 );
