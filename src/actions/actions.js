@@ -7,3 +7,7 @@ export const CREATE_FAIL = 'CREATE_FAIL';
 export const FETCH_COURSES = 'FETCH_COURSES';
 
 export const INIT_WELCOME = 'INIT_WELCOME';
+
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_LOGOUT = 'AUTH_LOGOUT';
+export const AUTH_FAIL = 'AUTH_FAIL';

@@ -37,6 +37,17 @@
   font-size: 25px;
 }
 
-.menu-logo:hover {
-  color: #66cdaa;
+.button-login {
+  margin: 9px;
+  float:right;
+  background-color: white;
+  color: rgb(88,88,88);
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+}
+
+.button-login:hover, .button-login:focus, .button-login:active, .button-login:active:focus {
+    color: #212529;
+    background-color: #e2e6ea;
 }

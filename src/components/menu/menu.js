@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './menu.css';
-import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import {Button, Nav, Navbar, NavItem} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import ModalLogin from "../login/modal-login";
 
 const ITEMS_MENU = { courses: 'Courses', problems: 'Problems', ide: 'Ide' };
 
@@ -10,12 +11,17 @@ class Menu extends Component {
     super(props);
 
     this.state = {
-      activated: window.location.pathname
+      activated: window.location.pathname,
+      showModal: false
     };
   }
 
   handleSelect = (selectedKey) => {
     this.setState({ activated: selectedKey });
+  };
+
+  handleModalHide = () => {
+    this.setState({ showModal: false });
   };
 
   render () {
@@ -28,21 +34,30 @@ class Menu extends Component {
     });
 
     return (
-      <Navbar className='menu'>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to='/' onClick={node => this.handleSelect(node.currentTarget.pathname)}>
-              <span className='menu-logo'> Dirlididi</span>
-            </Link>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse >
-          <Nav pullRight onSelect={key => this.handleSelect(`/${key}`)} >
-            {navItems}
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <div>
+        <Navbar className='menu'>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to='/' onClick={node => this.handleSelect(node.currentTarget.pathname)}>
+                <span className='menu-logo'> Dirlididi</span>
+              </Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse >
+            <Nav onSelect={key => this.handleSelect(`/${key}`)} >
+              {navItems}
+            </Nav>
+            <Button
+              bsStyle={'primary'}
+              className={'button-login'}
+              onClick={() => this.setState({ showModal: true })}>
+              { 'Log in / Sing Up'}
+            </Button>
+          </Navbar.Collapse>
+        </Navbar>
+        <ModalLogin showModal={this.state.showModal} handleHide={this.handleModalHide}/>
+      </div>
     );
   }
 }
