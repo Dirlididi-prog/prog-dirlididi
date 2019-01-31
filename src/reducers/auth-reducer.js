@@ -1,6 +1,7 @@
 import * as actionType from '../actions/actions';
 
 const initialState = {
+  authorization: null,
   user: null,
   error: null
 };
@@ -9,6 +10,7 @@ const authSuccess = (state, action) => (
   {
     ...state,
     user: action.user,
+    authorization: action.authorization,
     error: null
   }
 );
@@ -23,6 +25,7 @@ const authFail = (state, action) => (
 const authLogout = (state) => (
   {
     ...state,
+    authorization: null,
     user: null
   }
 );

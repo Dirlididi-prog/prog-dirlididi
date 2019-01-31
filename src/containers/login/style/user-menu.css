@@ -1,0 +1,11 @@
+.menu-dropdown {
+  margin: 9px;
+  float: right;
+}
+
+.menu-dropdown > div > button {
+  background-color: #375a7f !important;
+  color: white !important;
+  border: none;
+  font-weight: bold !important;
+}

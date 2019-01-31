@@ -1,36 +1,44 @@
+/* global localStorage */
+
+const headers = {
+  'Accept': 'application/json',
+  'Content-Type': 'application/json',
+  'Authorization': localStorage.getItem('authorization')
+};
+
+function handleResponse (response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response.json();
+}
+
 export const fetchGet = (endpoint) => {
-  return window.fetch(endpoint)
-    .then(response => response.json())
-    .catch(error => console.log(error));
+  return window.fetch(endpoint, {
+    method: 'GET',
+    headers: headers
+  }).then(handleResponse);
 };
 
 export const fetchPost = (endpoint, body) => {
   return window.fetch(endpoint, {
     method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
+    headers: headers,
     body: JSON.stringify(body)
-  }).then(response => response.json())
-    .catch(error => console.log(error));
+  }).then(handleResponse);
 };
 
 export const fetchDelete = (endpoint) => (
   window.fetch(endpoint, {
-    method: 'DELETE'
-  }).then(response => response.json())
-    .catch(error => console.log(error))
+    method: 'DELETE',
+    headers: headers
+  }).then(handleResponse)
 );
 
 export const fetchPut = (endpoint, body) => {
   return window.fetch(endpoint, {
     method: 'PUT',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
+    headers: headers,
     body: JSON.stringify(body)
-  }).then(response => response.json())
-    .catch(error => console.log(error));
+  }).then(handleResponse);
 };

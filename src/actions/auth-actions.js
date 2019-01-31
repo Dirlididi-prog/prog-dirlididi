@@ -1,51 +1,49 @@
 import { fetchPost } from '../shared/utility';
-import * as action from './actions';
+import { AUTH_SUCCESS, AUTH_FAIL, AUTH_LOGOUT } from './actions';
 
-const authSuccess = user => (
+/* global localStorage */
+
+const authSuccess = data => (
   {
-    type: action.AUTH_SUCCESS,
-    user: user
+    ...data,
+    type: AUTH_SUCCESS
   }
 );
 
 const authFail = error => (
   {
-    type: action.AUTH_FAIL,
+    type: AUTH_FAIL,
     error: error
   }
 );
 
-export const checkState = () =>
-  dispatch => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (!user) {
-      dispatch(logout());
+export const tryAutoConnect = () => {
+  return dispatch => {
+    const authorization = localStorage.getItem('authorization');
+    if (!authorization) {
+      logout();
     } else {
-      dispatch(authSuccess(user));
+      const user = JSON.parse(localStorage.getItem('user'));
+      dispatch(authSuccess({ authorization: authorization, user: user }));
     }
-  }
-;
-
-export const logout = () => {
-  localStorage.removeItem('user');
-  return {
-    type: action.AUTH_LOGOUT
   };
 };
 
-export const login = (data) =>
-  dispatch => {
+export const logout = () => {
+  return dispatch => {
+    localStorage.removeItem('authorization');
+    localStorage.removeItem('user');
+    dispatch({ type: AUTH_LOGOUT });
+  };
+};
+
+export const login = (data) => {
+  return dispatch => {
+    const user = JSON.parse(localStorage.getItem('user'));
     fetchPost('/auth', data)
-      .then(user => {
-        if (user.error) {
-          dispatch(authFail(user.error));
-        } else {
-          localStorage.setItem('user', JSON.stringify(user));
-          dispatch(authSuccess(user));
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-;
+      .then(authorization => dispatch(authSuccess({
+        authorization: authorization['jwt'],
+        user: user })))
+      .catch(error => dispatch(authFail(error)));
+  };
+};

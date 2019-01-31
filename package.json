@@ -8,6 +8,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "dotenv": "^6.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-bootstrap": "^0.32.4",
@@ -15,6 +16,7 @@
     "react-dom": "^16.6.0",
     "react-form": "^3.5.6",
     "react-markdown": "^4.0.6",
+    "react-google-login": "^5.0.0",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.1.3",
@@ -25,6 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "debug": "react-scripts start --inspect-brk --no-cache --verbose=false --runInBand",
     "eject": "react-scripts eject",
     "lint:css": "stylelint 'src/**/*.css'",
     "lint:js": "semistandard",

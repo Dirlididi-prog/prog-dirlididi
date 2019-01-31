@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './menu.css';
-import {Button, Nav, Navbar, NavItem} from 'react-bootstrap';
+import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import ModalLogin from "../login/modal-login";
+import Login from '../../containers/login/login';
 
 const ITEMS_MENU = { courses: 'Courses', problems: 'Problems', ide: 'Ide' };
 
@@ -11,17 +11,12 @@ class Menu extends Component {
     super(props);
 
     this.state = {
-      activated: window.location.pathname,
-      showModal: false
+      activated: window.location.pathname
     };
   }
 
   handleSelect = (selectedKey) => {
     this.setState({ activated: selectedKey });
-  };
-
-  handleModalHide = () => {
-    this.setState({ showModal: false });
   };
 
   render () {
@@ -48,15 +43,9 @@ class Menu extends Component {
             <Nav onSelect={key => this.handleSelect(`/${key}`)} >
               {navItems}
             </Nav>
-            <Button
-              bsStyle={'primary'}
-              className={'button-login'}
-              onClick={() => this.setState({ showModal: true })}>
-              { 'Log in / Sing Up'}
-            </Button>
+            <Login />
           </Navbar.Collapse>
         </Navbar>
-        <ModalLogin showModal={this.state.showModal} handleHide={this.handleModalHide}/>
       </div>
     );
   }
