@@ -20,7 +20,7 @@
     "react-google-login": "^5.0.0",
     "react-redux": "^5.1.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "^2.1.3",
+    "react-scripts": "^2.1.8",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"
   },
@@ -31,9 +31,9 @@
     "debug": "react-scripts start --inspect-brk --no-cache --verbose=false --runInBand",
     "eject": "react-scripts eject",
     "lint:css": "stylelint 'src/**/*.css'",
-    "lint:js": "semistandard",
+    "lint:js": "eslint 'src/**/*.js'",
     "lint-fix:css": "stylelint 'src/**/*.css' --fix",
-    "lint-fix:js": "semistandard --fix",
+    "lint-fix:js": "eslint --fix 'src/**/*.js'",
     "lint": "npm-run-all lint:*",
     "lint-fix": "npm-run-all lint-fix:*"
   },
@@ -51,6 +51,8 @@
   ],
   "devDependencies": {
     "babel-eslint": "^9.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-react": "^7.12.4",
     "npm-run-all": "^4.1.5",
     "semistandard": "^13.0.1",
     "stylelint": "^9.10.1",
