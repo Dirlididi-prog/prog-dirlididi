@@ -7,3 +7,40 @@
 #add-problem-form {
   margin: 2% 5% 0;
 }
+
+.show-problem-container {
+  margin: 2% 5% 0;
+}
+
+.show-problem-container h4 {
+  float: left;
+}
+
+.problem-props {
+  font-weight: bold;
+}
+
+#show-problem-pg-h {
+  margin-bottom: 0.5%;
+}
+
+#tags-prop {
+  margin-bottom: 1%;
+}
+
+#tag-badge {
+  margin-left: 5px;
+}
+
+#key-prop {
+  margin-top: 1px;
+  margin-bottom: 5px;
+}
+
+#tests-table {
+  margin-bottom: 10%;
+}
+
+#solve-btn {
+  margin-bottom: 20px;
+}

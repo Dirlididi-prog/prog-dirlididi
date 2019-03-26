@@ -1,9 +1,15 @@
-export const HEADERS_TABLE = {
-  id: { label: 'ID', width: '10' },
-  name: { label: 'Course', width: '30' },
-  members: { label: 'Members', width: '30' },
-  owner: { label: 'Owner', width: '30' },
-  date: { label: 'Created at', width: '80' },
-  enrolled: { label: 'Enrolled', width: '80' },
-  actions: { label: 'Actions', width: '80' } // check how we're going to deal with solving
+export const HEADERS_TABLE_CONFIG = [
+  { dataField: 'id', isKey: true, label: 'ID', width: '10' },
+  { dataField: 'name', label: 'Name', width: '150' },
+  { dataField: 'members', label: 'Members', width: '30' },
+  { dataField: 'owner', label: 'Owner', width: '80' },
+  { dataField: 'language', label: 'Language', width: '80' },
+  { dataField: 'enrolled', label: 'Enrolled', width: '30' },
+  { dataField: 'actions', label: 'Actions', width: '30' } // check how we're going to deal with solving
+];
+
+export const TABLE_CONFIG = {
+  search: true,
+  pagination: true,
+  hover: true
 };

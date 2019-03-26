@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PageHeader } from 'react-bootstrap';
 
-import * as problemAction from '../../actions/problem';
+import * as problemAction from '../../actions/problem-actions';
 import AddProblemForm from '../../components/form/add-problem-form';
 import CustomAlert from '../../components/alert/custom-alert';
 import './style/problems.css';
@@ -25,8 +25,8 @@ class AddProblem extends Component {
     this.setState({ name: event.target.value });
   };
 
-  handleProblemDescriptionChange = event => {
-    this.setState({ description: event.target.value });
+  handleProblemDescriptionChange = newValue => {
+    this.setState({ description: newValue });
   };
 
   handleProblemTipChange = event => {

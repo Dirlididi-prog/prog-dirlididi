@@ -1,4 +1,4 @@
-import { FETCH_COURSES } from '../actions/actions';
+import { FETCH_COURSES, CREATE_COURSE } from '../actions/actions';
 
 const initialState = {
   courses: [],
@@ -21,6 +21,11 @@ const CourseReducer = (state = initialState, action) => {
         error: null,
         isLoading: false,
         courses: parseDataValues(action.courses)
+      };
+    case CREATE_COURSE:
+      return {
+        ...state,
+        course: action.course
       };
     default: return state;
   }

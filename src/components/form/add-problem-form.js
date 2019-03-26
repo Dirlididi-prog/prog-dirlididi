@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Col, ControlLabel, FormGroup, FormControl, HelpBlock, Row } from 'react-bootstrap';
 import ReactMarkdown from 'react-markdown';
-
 import AddTagForm from './add-tag-form';
 import AddTextAreaForm from './add-text-area-form';
+import CodeEditor from './code-editor';
 
 class AddProblemForm extends Component {
   render () {
@@ -17,14 +17,15 @@ class AddProblemForm extends Component {
           onChange={this.props.handleProblemNameChange} />
         <Row>
           <Col sm={6}>
-            <FieldGroup
+            <FormGroup
               className='form-control-field'
-              id='form-control-description'
-              componentClass='textarea'
-              type='text'
-              label='Description'
-              placeholder='Enter description'
-              onChange={this.props.handleProblemDescriptionChange} />
+              controlId='form-control-description'>
+              <ControlLabel>Description</ControlLabel>
+              <CodeEditor
+                mode='markdown'
+                onChange={this.props.handleProblemDescriptionChange}
+                value={this.props.problemMarkdown} />
+            </FormGroup>
           </Col>
           <Col sm={6}>
             <ReactMarkdown className='markdown-container' source={this.props.problemMarkdown} />

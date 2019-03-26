@@ -1,3 +1,36 @@
 .course-container {
   margin: 5%;
 }
+
+.course-form {
+  margin: 2% 5% 0 5%;
+}
+
+.form-control-field {
+  width: 50%;
+}
+
+textarea.form-control {
+  height: 200px;
+}
+
+.button-submit {
+  margin-bottom: 2%;
+  padding: 10px 15px;
+  border-radius: 3px;
+}
+
+.button-add {
+  margin-bottom: 15px;
+}
+
+.item-list {
+  display: table-cell;
+  margin-bottom: 1%;
+}
+
+.remove-button {
+  position: absolute;
+  right: 2%;
+  top: 30%;
+}
