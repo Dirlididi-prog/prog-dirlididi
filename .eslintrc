@@ -1,0 +1,27 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "semistandard",
+    "standard-jsx",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "import"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "import/order": ["error", {
+      "groups": [["builtin", "external", "internal"], ["parent", "sibling", "index"]],
+      "newlines-between": "always"
+    }],
+    "import/newline-after-import": ["error", { "count": 1 }],
+    "react/prop-types": 0,
+    "no-undef": 0,
+    "no-console": 0
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
