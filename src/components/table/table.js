@@ -5,6 +5,18 @@ import './table.css';
 import PropTypes from 'prop-types';
 
 class Table extends Component {
+  getSelectRowProps (selectRow) {
+    if (selectRow) {
+      return {
+        mode: 'checkbox',
+        clickToSelect: true,
+        bgColor: '#5bc0de',
+        selected: this.props.selectedItems
+      };
+    }
+    return false;
+  }
+
   render () {
     const options = {
       onRowClick: this.props.allowRedirect
@@ -21,9 +33,13 @@ class Table extends Component {
       );
     });
 
+    const selectRowProps = this.getSelectRowProps(this.props.selectRow);
+
     return (
       <div>
         <BootstrapTable
+          ref='table'
+          selectRow={selectRowProps}
           {...this.props.tableConfig}
           data={this.props.data}
           options={options}

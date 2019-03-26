@@ -19,6 +19,12 @@ export const TEST_HEADERS_TABLE = {
   output: { label: 'Output', width: '250' }
 };
 
+export const HEADERS_TABLE_ADD_PROBLEM = {
+  key: { label: 'Key', width: '100' },
+  name: { label: 'Problem', width: '250' },
+  description: { label: 'Description' }
+};
+
 export const URLS = {
   addProblem: '/addProblem'
 };

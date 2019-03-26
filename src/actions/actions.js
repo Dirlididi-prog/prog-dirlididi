@@ -5,5 +5,6 @@ export const UPDATE_PROBLEM = 'UPDATE_PROBLEM';
 export const CREATE_FAIL = 'CREATE_FAIL';
 
 export const FETCH_COURSES = 'FETCH_COURSES';
+export const CREATE_COURSE = 'CREATE_COURSE';
 
 export const INIT_WELCOME = 'INIT_WELCOME';

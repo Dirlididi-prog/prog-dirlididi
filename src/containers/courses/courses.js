@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Table from '../../components/table/table';
-import * as courseAction from '../../actions/course-action';
+import { Button, PageHeader } from 'react-bootstrap';
+import { fetchCourses } from '../../actions/course-action';
 import './style/courses.css';
 import Spinner from '../../components/spinner/spinner';
 import { TABLE_CONFIG, HEADERS_TABLE_CONFIG } from '../../constants/course-constants';
@@ -53,6 +54,12 @@ class Courses extends Component {
 
     return (
       <div className='course-container'>
+        <PageHeader>
+          Courses
+        </PageHeader>
+        <div>
+          <Button bsStyle='primary' href='/addCourse'>Add Course</Button>
+        </div>
         {containerData}
       </div>
     );
@@ -68,7 +75,7 @@ const mapStateToProps = state => (
 
 const mapDispatchToProps = dispatch => (
   {
-    onFetchCourses: () => dispatch(courseAction.fetchCourses())
+    onFetchCourses: () => dispatch(fetchCourses())
   }
 );
 
