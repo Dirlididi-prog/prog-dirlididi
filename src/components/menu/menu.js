@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './menu.css';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Login from '../../containers/login/login';
 
 const ITEMS_MENU = { courses: 'Courses', problems: 'Problems', ide: 'Ide' };
 
@@ -28,21 +29,24 @@ class Menu extends Component {
     });
 
     return (
-      <Navbar className='menu'>
-        <Navbar.Header>
-          <Navbar.Brand>
-            <Link to='/' onClick={node => this.handleSelect(node.currentTarget.pathname)}>
-              <span className='menu-logo'> Dirlididi</span>
-            </Link>
-          </Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse >
-          <Nav pullRight onSelect={key => this.handleSelect(`/${key}`)} >
-            {navItems}
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <div>
+        <Navbar className='menu'>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <Link to='/' onClick={node => this.handleSelect(node.currentTarget.pathname)}>
+                <span className='menu-logo'> Dirlididi</span>
+              </Link>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse >
+            <Nav onSelect={key => this.handleSelect(`/${key}`)} >
+              {navItems}
+            </Nav>
+            <Login />
+          </Navbar.Collapse>
+        </Navbar>
+      </div>
     );
   }
 }
