@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
 
-import { initProblems } from '../../actions/problem';
+import { initProblems } from '../../actions/problem-actions';
 import Table from '../../components/table/table';
 import Spinner from '../../components/spinner/spinner';
 import './style/courses.css';

@@ -30,24 +30,22 @@ class Menu extends Component {
     });
 
     return (
-      <div>
-        <Navbar className='menu'>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <Link to='/' onClick={node => this.handleSelect(node.currentTarget.pathname)}>
-                <span className='menu-logo'> Dirlididi</span>
-              </Link>
-            </Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse >
-            <Nav onSelect={key => this.handleSelect(`/${key}`)} >
-              {navItems}
-            </Nav>
-            <Login />
-          </Navbar.Collapse>
-        </Navbar>
-      </div>
+      <Navbar className='menu'>
+        <Navbar.Header>
+          <Navbar.Brand>
+            <Link to='/' onClick={node => this.handleSelect(node.currentTarget.pathname)}>
+              <span className='menu-logo'> Dirlididi</span>
+            </Link>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+        </Navbar.Header>
+        <Navbar.Collapse >
+          <Nav onSelect={key => this.handleSelect(`/${key}`)} >
+            {navItems}
+          </Nav>
+          <Login />
+        </Navbar.Collapse>
+      </Navbar>
     );
   }
 }

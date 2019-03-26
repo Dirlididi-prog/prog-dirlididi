@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PageHeader, ControlLabel, FormGroup, FormControl, HelpBlock, Button, ListGroup } from 'react-bootstrap';
 
-import { postCourse } from '../../actions/course-action';
+import { postCourse } from '../../actions/course-actions';
 import ProblemsModal from './problems-modal';
 import CustomAlert from '../../components/alert/custom-alert';
 import './style/courses.css';
