@@ -21,13 +21,11 @@ class ProblemSummary extends Component {
   render () {
     let key, description, tip;
 
-    const tags = this.props.location.state.tags.map((tag) => {
-      if (tag !== null && tag !== '') {
-        return (
-          <Badge id='tag-badge' variant='primary'>{tag}</Badge>
-        );
-      }
-    });
+    const tags = this.props.location.state.tags
+      .filter(tag => tag)
+      .map((tag, index) => (
+        <Badge key={`badge-${index}`} id='tag-badge' variant='primary'>{tag}</Badge>
+      ));
 
     if (this.props.location.state.key) {
       key = <h4>{`Key: ${this.props.location.state.key}`}</h4>;

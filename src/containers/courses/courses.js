@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button, PageHeader } from 'react-bootstrap';
 
 import Table from '../../components/table/table';
-import { fetchCourses } from '../../actions/course-action';
+import { fetchCourses } from '../../actions/course-actions';
 import './style/courses.css';
 import Spinner from '../../components/spinner/spinner';
 import { TABLE_CONFIG, HEADERS_TABLE_CONFIG } from '../../constants/course-constants';
