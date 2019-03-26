@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 import Header from '../../components/header/header';
 import Section from '../../components/section/section';
 import CardIcon from '../../components/card-icon/card-icon';
@@ -6,7 +8,6 @@ import CardButton from '../../components/card-button/card-button';
 import Card from '../../components/card/card';
 import * as WelcomeConst from '../../constants/welcome-constants';
 import * as WelcomeAction from '../../actions/welcome-actions';
-import { connect } from 'react-redux';
 import Spinner from '../../components/spinner/spinner';
 
 class Welcome extends Component {

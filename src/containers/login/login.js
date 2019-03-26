@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import * as AuthActions from '../../actions/auth-actions';
 import { connect } from 'react-redux';
+
+import * as AuthActions from '../../actions/auth-actions';
 import LoginButton from '../../components/login/login-button';
 import UserMenu from './user-menu';
 

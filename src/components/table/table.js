@@ -38,7 +38,7 @@ class Table extends Component {
     return (
       <div>
         <BootstrapTable
-          ref='table'
+          ref={`table`}
           selectRow={selectRowProps}
           {...this.props.tableConfig}
           data={this.props.data}
