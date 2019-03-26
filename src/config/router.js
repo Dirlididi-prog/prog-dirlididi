@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
+
 import Welcome from '../containers/welcome/welcome';
 import Courses from '../containers/courses/courses';
 import AddCourse from '../containers/courses/add-course';

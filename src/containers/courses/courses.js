@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Table from '../../components/table/table';
 import { Button, PageHeader } from 'react-bootstrap';
+
+import Table from '../../components/table/table';
 import { fetchCourses } from '../../actions/course-action';
 import './style/courses.css';
 import Spinner from '../../components/spinner/spinner';

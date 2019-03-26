@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { DropdownButton, MenuItem } from 'react-bootstrap';
+import { connect } from 'react-redux';
+
 import './style/user-menu.css';
 import * as AuthActions from '../../actions/auth-actions';
-import { connect } from 'react-redux';
 
 class UserMenu extends Component {
   handleLogout = () => {

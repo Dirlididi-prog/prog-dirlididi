@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Modal, Button } from 'react-bootstrap';
+
 import { initProblems } from '../../actions/problem';
 import Table from '../../components/table/table';
 import Spinner from '../../components/spinner/spinner';
@@ -8,13 +9,18 @@ import './style/courses.css';
 import { HEADERS_TABLE_ADD_PROBLEM } from '../../constants/problem-constants';
 
 class ProblemsModal extends Component {
+  constructor () {
+    super();
+    this.tableRef = React.createRef();
+  }
+
   componentDidMount () {
     this.props.onInitProblems();
   }
 
   addProblems () {
     // I need to find a better way to make this operation
-    const selectedKeys = this.refs.table.refs.table.state.selectedRowKeys;
+    const selectedKeys = this.tableRef.refs.table.state.selectedRowKeys;
     const problems = this.props.problems.filter((problem) => {
       if (selectedKeys.includes(problem.key)) {
         return problem;
@@ -32,7 +38,7 @@ class ProblemsModal extends Component {
 
     return (
       <Table
-        ref='table'
+        ref={this.tableRef}
         selectedItems={this.props.selectedItems.map(item => item.key)}
         selectRow
         headers={HEADERS_TABLE_ADD_PROBLEM}
